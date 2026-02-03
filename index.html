@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>For My Pasandida Aurat 💕</title>
+  <title>For My Favorite Person 💕</title>
   <style>
     body {
       margin: 0;
@@ -134,3 +134,18 @@
 
     const colors = ["#ff4b7d", "#ffd1dc", "#ffffff", "#ff9aa2"];
     confetti.style.backgroundColor =
+      colors[Math.floor(Math.random() * colors.length)];
+
+    confetti.style.left = Math.random() * 100 + "vw";
+    confetti.style.animationDuration = Math.random() * 3 + 2 + "s";
+
+    document.body.appendChild(confetti);
+
+    setTimeout(() => {
+      confetti.remove();
+    }, 5000);
+  }
+</script>
+
+</body>
+</html>
