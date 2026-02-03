@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Question ❤️</title>
+    <style>
+        body {
+            background-color: #ffe4e1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        h1 { color: #d63384; font-size: 2.5rem; }
+        .gif { width: 200px; margin-bottom: 20px; }
+        .buttons { margin-top: 30px; display: flex; justify-content: center; gap: 20px; align-items: center; }
+        button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        #yesBtn { background-color: #ff4d6d; color: white; }
+        #noBtn { background-color: #888; color: white; position: absolute; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpwaGthczZ4ZzB6Z3Z4ZzB6Z3Z4ZzB6Z3Z4ZzB6Z3Z4ZzB6Z3Z4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/26BRv0ThflsHCqfJA/giphy.gif" alt="Cute heart" class="gif">
+        <h1 id="question">Will you be my Valentine Jaan? ❤️</h1>
+        
+        <div class="buttons">
+            <button id="yesBtn">Yes</button>
+            <button id="noBtn">No</button>
+        </div>
+    </div>
+
+    <script>
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const question = document.getElementById('question');
+        let yesSize = 1.2;
+
+        // The No button runs away
+        noBtn.addEventListener('mouseover', () => {
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            noBtn.style.left = `${x}px`;
+            noBtn.style.top = `${y}px`;
+            
+            // Make the Yes button bigger every time they try to click No
+            yesSize += 0.5;
+            yesBtn.style.transform = `scale(${yesSize})`;
+        });
+
+        // When they click Yes
+        yesBtn.addEventListener('click', () => {
+            document.body.innerHTML = `
+                <div class="container">
+                    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpwaGthczZ4ZzB6Z3Z4ZzB6Z3Z4ZzB6Z3Z4ZzB6Z3Z4ZzB6Z3Z4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/l41lTxfp64K8F9nzy/giphy.gif" class="gif">
+                    <h1 style="color: #ff4d6d;">Huehue!! I Love Uuuu Soooo Muchhhh Jaaaannn 🌹❤️</h1>
+                    <p>I love you!</p>
+                </div>
+            `;
+            // Add some confetti effect or background change
+            document.body.style.backgroundColor = "#ff4d6d";
+            document.querySelector('.container').style.transform = "scale(1.2)";
+        });
+    </script>
+</body>
+</html>
